@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ApplicationRepository extends JpaRepository<ApplicationRequest,Long>  {
+  List<ApplicationRequest> findAllByIdGreaterThan(Long id);
 List<ApplicationRequest> findAllByHandled(boolean handled);
 }

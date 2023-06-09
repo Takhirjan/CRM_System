@@ -3,15 +3,18 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="main_layout.html">
 <body>
 <div layout:fragment="siteContent">
-    <div class="card" th:each="task : ${applicationRequests}" style="width: 50%">
+    <div class="card" th:each="task : ${applicationRequests}"
+         style="width: 50%;display: flex;flex-wrap: wrap">
         <div class="card-header" style="display: flex">
+            <span th:text="${task.handled != null && task.handled ? ' ':'*(Новая)'}" style="margin-right: 5px;
+color: red;font-weight: bold"> </span>
             <span>Заявка от </span> <h1 class="fw-bold ms-2" style="font-size: 18px;" th:text="${task.userName}"></h1>
         </div>
         <div class="card-body">
-            <span>Курс: </span> <p class="card-title text-secondary" th:text="${task.courseName}"></p>
+            <span>Курс: </span> <span class="card-title text-secondary fw-bold" th:text="${task.courseName}"></span>
             <p class="card-text" th:text="${task.commentary}"></p>
             <p class="card-text" th:text="${task.phone}"></p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a th:href="@{'/details-new-application/'+${task.id}}" class="btn btn-primary">Подробнее</a>
         </div>
     </div>
 </div>

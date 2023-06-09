@@ -3,6 +3,7 @@
       layout:decorate="main_layout.html">
 <body>
 <div layout:fragment="siteContent">
+  <div class="container-fluid">
   <div class="row">
     <div class="col-8 mx-auto">
       <form action="/add-application" method="post">
@@ -58,16 +59,18 @@
         </div>
           <div class="row mt-2" >
             <div class="col-12">
-              <textarea name="commentary" rows="3" class="form-control"></textarea>
+              <textarea name="commentary" rows="5" class="form-control"></textarea>
             </div>
           </div>
         <div class="row mt-3" >
           <div class="col-12">
-            <button class="btn btn-success">Add music</button>
+            <button class="btn btn-success">Добавить Заявку </button>
           </div>
+        </div>
         </div>
       </form>
     </div>
+  </div>
   </div>
 </div>
 </body>
