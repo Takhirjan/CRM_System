@@ -11,7 +11,7 @@ color: red;font-weight: bold"> </span>
             <span>Заявка от </span> <h1 class="fw-bold ms-2" style="font-size: 18px;" th:text="${task.userName}"></h1>
         </div>
         <div class="card-body">
-            <span>Курс: </span> <span class="card-title text-secondary fw-bold" th:text="${task.courseName}"></span>
+            <span>Курс: </span> <span class="card-title text-secondary fw-bold" th:text="${task.course.courseName}"></span>
             <p class="card-text" th:text="${task.commentary}"></p>
             <p class="card-text" th:text="${task.phone}"></p>
             <a th:href="@{'/details-new-application/'+${task.id}}" class="btn btn-primary">Подробнее</a>

@@ -1,7 +1,9 @@
 package SprintTask.almaty.Task2.Controller;
 
 import SprintTask.almaty.Task2.Model.ApplicationRequest;
+import SprintTask.almaty.Task2.Model.CourseModel;
 import SprintTask.almaty.Task2.Repository.ApplicationRepository;
+import SprintTask.almaty.Task2.Repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,9 @@ import java.util.List;
 public class HomeController {
   @Autowired
   private ApplicationRepository applicationRepository;
+
+  @Autowired
+  private CourseRepository courseRepository;
 
   @GetMapping(value = "/")
   public String indexPage(Model model) {
@@ -34,6 +39,8 @@ public class HomeController {
 
   @GetMapping(value = "/add-application")
   public String addApplicationPage(Model model) {
+  List<CourseModel> courseModels=courseRepository.findAll();
+  model.addAttribute("course",courseModels);
     return "addapplication";
   }
 
@@ -54,6 +61,9 @@ public class HomeController {
   public String musicDetails(@PathVariable(name = "zayavkaId") Long id, Model model) {
     ApplicationRequest applicationRequest=applicationRepository.findById(id).orElse(null);
     model.addAttribute("zayavka", applicationRequest);
+
+    List<CourseModel> courseModels=courseRepository.findAll();
+    model.addAttribute("course",courseModels);
     return "details-new-application";
   }
   @PostMapping(value = "/delete-application")

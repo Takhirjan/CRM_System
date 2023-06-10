@@ -18,8 +18,6 @@ public class ApplicationRequest {
   @Column(name="user_name")
   private String userName;
 
-  @Column(name = "course_name")
-  private String courseName;
 
   @Column(name = "commentary")
   private String commentary;
@@ -29,4 +27,7 @@ public class ApplicationRequest {
 
   @Column(name = "handled")
   private boolean handled;
+
+  @ManyToOne
+  private CourseModel  course;
 }

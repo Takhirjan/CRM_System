@@ -29,11 +29,10 @@
           </div>
           <div class="row mt-2" >
             <div class="col-12">
-              <select name="courseName" class="form-control" th:value="${zayavka.courseName}" readonly>
-                <option>JAVA EE</option>
-                <option>C++</option>
-                <option>Python</option>
-                <option>UI/UX design</option>
+              <select name="course.id" class="form-control">
+                <option th:each="course:${course}" th:value="${course.id}"
+                        th:text="${course.courseName+' '+ course.price}"
+                th:selected="${zayavka.course.id==course.id}">
               </select>
             </div>
           </div>
